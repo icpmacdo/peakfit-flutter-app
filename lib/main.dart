@@ -9,6 +9,11 @@ import 'package:intl/intl.dart';
 
 void main() => runApp(const MyApp());
 
+/// The main application widget.
+/// 
+/// This widget represents the root of the application.
+/// It creates a [MaterialApp] widget with a title and theme,
+/// and sets the home page to [MyHomePage].
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -24,6 +29,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Represents the home page of the application.
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
@@ -31,6 +37,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+/// The state class for the MyHomePage widget.
 class _MyHomePageState extends State<MyHomePage> {
   String _apiResponse = '';
 

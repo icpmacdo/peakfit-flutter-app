@@ -56,6 +56,21 @@ class _MyHomePageState extends State<MyHomePage> {
     // });
   }
 
+  /// Builds the main application widget.
+  ///
+  /// This method returns a [Scaffold] widget that contains the app bar, body, and buttons.
+  /// The app bar displays today's date in plain English.
+  /// The body consists of a column layout with a "Friends List" heading and a list of friends.
+  /// The buttons are displayed in a row layout and trigger API requests when pressed.
+  /// The first button represents an "outside" location, while the second button represents an "inside" location.
+  /// The buttons have an increased font size and change appearance when hovered over.
+  ///
+  /// Returns:
+  ///   A [Scaffold] widget representing the main application UI.
+  @override
+  Widget build(BuildContext context) {
+    // code implementation
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,23 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column( // Use Column for top-to-bottom layout
         mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space items vertically
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.all(16.0), // Padding around text
-          //   child: Text(
-          //     'Welcome to PeakFit!',
-          //     style: TextStyle(fontSize: 24),
-          //   ),
-          // ),
-          // Center(
-          //   child: Text("_apiResponse friends list and their status!"),
-          // ),
-
-          // friends list and their status
           Padding(
             padding: const EdgeInsets.all(16.0), // Padding around text
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Friends List',
                   style: TextStyle(fontSize: 24),
                 ),
@@ -98,10 +101,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
           Padding(
             padding: const EdgeInsets.all(16.0), // Padding around buttons
+            /// This code represents a row of two elevated buttons in a Flutter application.
+            /// The buttons are distributed evenly within the row using the `MainAxisAlignment.spaceEvenly` property.
+            /// Each button has an `onPressed` callback that makes an API request with a specified location.
+            /// The first button represents an outdoor location, while the second button represents an indoor location.
+            /// The buttons have a minimum size of 150x70 and a font size of 40.
+            /// The second button also has an `onHover` callback that prints the hover value.
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Distribute buttons evenly
               children: [
-                ElevatedButton(
+                ElevatedButton( // First button
                   onPressed: () {
                     const location = 'outside';
                     _makeApiRequest(location);
@@ -113,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(width: 16.0), 
-                ElevatedButton(
+                ElevatedButton( // Second button
                   onPressed: () {
                     const location = 'inside';
                     _makeApiRequest(location);

@@ -43,17 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _makeApiRequest(location) async {
     print(location);
-    
-    // final url = Uri.parse('https://api.example.com/data'); 
-    // final response = await http.get(url);
-
-    // setState(() {
-    //   if (response.statusCode == 200) {
-    //     _apiResponse = jsonDecode(response.body)['your_data_field'];
-    //   } else {
-    //     _apiResponse = 'Error: ${response.statusCode}';
-    //   }
-    // });
   }
 
   /// Builds the main application widget.
@@ -69,11 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
   ///   A [Scaffold] widget representing the main application UI.
   @override
   Widget build(BuildContext context) {
-    // code implementation
-  }
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: ash grey
+      backgroundColor: Color.fromARGB(255, 121, 147, 141),
+      // have this vertically fade
       appBar: AppBar(
         // title is todays date in plain english
         title: Text(DateFormat('MMMM d').format(DateTime.now()), style: TextStyle(fontSize: 24),
@@ -81,15 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
       )),
       body: Column( // Use Column for top-to-bottom layout
         mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space items vertically
+        
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0), // Padding around text
             child: Column(
               children: [
-                const Text(
-                  'Friends List',
-                  style: TextStyle(fontSize: 24),
-                ),
                 for (int i = 1; i <= 4; i++)
                   Text(
                     'Friend $i: ${i % 2 == 0 ? '🧗' : '🏋️'}',
@@ -112,29 +97,15 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton( // First button
                   onPressed: () {
-                    const location = 'outside';
+                    const location = 'climbing outside';
                     _makeApiRequest(location);
                   },
                   child: const Text('🧗'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(150, 70), 
                     textStyle: TextStyle(fontSize: 40), // Increased font size 
+                    backgroundColor: Color.fromRGBO(15, 173, 134, 0.278), // Set background color
                   ),
-                ),
-                SizedBox(width: 16.0), 
-                ElevatedButton( // Second button
-                  onPressed: () {
-                    const location = 'inside';
-                    _makeApiRequest(location);
-                  },
-                  child: const Text('🏋️'),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(150, 70), 
-                    textStyle: TextStyle(fontSize: 40), // Increased font size 
-                  ),
-                  onHover: (value) {
-                    print(value);
-                  },
                 ),
               ],
             ),
